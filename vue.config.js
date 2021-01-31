@@ -2,6 +2,8 @@ const PrerenderSpaPlugin = require("prerender-spa-plugin");
 const path = require('path')
 const resolve = dir => path.join(__dirname, dir);
 const isProduction = process.env.NODE_ENV === 'production'
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const needBundleAnalysis = process.argv.includes('--analyze')
 const renderRoutes = (() => {
   const routes = [
     '/',
@@ -12,17 +14,12 @@ const renderRoutes = (() => {
 })()
 
 module.exports = {
-  pages: {
-    index: {
-      entry: 'src/main.ts',
-      template: 'public/index.html',
-      filename: 'index.html',
-      title: 'Rosita',
-    }
-  },
   lintOnSave: process.env.NODE_ENV !== 'production',
   productionSourceMap: false,
   chainWebpack: config => {
+    if (isProduction && needBundleAnalysis) {
+      config.plugin('analyzer').use(new BundleAnalyzerPlugin())
+    }
     config.performance
       .maxEntrypointSize(2000000)
       .maxAssetSize(1000000)

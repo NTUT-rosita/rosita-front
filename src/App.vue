@@ -7,6 +7,18 @@
   <Footer/>
 </template>
 
+<script lang="ts">
+import {defineComponent} from 'vue'
+import '@/assets/scss/app.scss'
+
+export default defineComponent({
+  name: 'App',
+  setup() {
+    return
+  }
+})
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
