@@ -1,0 +1,16 @@
+@import "../../shared";
+
+#header-container {
+  .center {
+    @include absolute-transform-center;
+  }
+
+  .header {
+    overflow:hidden;
+
+    &__bg {
+      background-image: url("https://i.imgur.com/FPlTyg6.webp");
+      filter: brightness(120%);
+    }
+  }
+}

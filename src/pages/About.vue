@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <main id="about" class="page-container">
     <h1>This is an about page</h1>
     <button
         class="inline-block
@@ -14,7 +14,7 @@
     >
       Demo
     </button>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
