@@ -6,12 +6,13 @@
   }
 
   .header {
-    overflow:hidden;
+    overflow: hidden;
 
     &__bg {
       @include fix-100vh-in-mobile-WebKit;
-      background-image: url("https://i.imgur.com/FPlTyg6.webp");
-      filter: brightness(120%);
+      -webkit-transform: translatez(0);
+      background-image: url("https://i.imgur.com/HYkm7B6.webp");
+      filter: blur(5px);
     }
   }
 }

@@ -1,6 +1,22 @@
 <template>
   <main id="home" class="page-container">
     <Header/>
+    <div id="home-content" class="">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <Icon icon="smile"/>
+      <br>
+    </div>
   </main>
 </template>
 
