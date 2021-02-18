@@ -68,14 +68,6 @@ export default defineComponent({
 .mask {
   opacity: 0;
   transition: 1s ease;
-  min-width: inherit;
-  min-height: inherit;
-  max-width: inherit;
-  max-height: inherit;
-  width: auto;
-  height: auto;
-  background-position: center center;
-  background-size: cover;
 
   &__completed {
     opacity: 1;
