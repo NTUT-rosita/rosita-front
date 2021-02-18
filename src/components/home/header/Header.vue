@@ -3,22 +3,33 @@
     <header class="header relative">
       <div class="header__bg bg-cover bg-center bg-no-repeat bg-fixed"/>
       <span class="absolute max-w-md w-3/4 sm:w-4/6 md:w-1/2 center">
-        <img alt="NTUT-Badge" src="https://i.imgur.com/vYc6cWk.webp">
-        <SecondBadge/>
+        <LazyImg d-alt="NTUT-badge" d-src="https://i.imgur.com/vYc6cWk.webp" @imgLoaded="showSecondBadge"/>
+        <SecondBadge class="opacity-0"/>
       </span>
     </header>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue';
+import {defineComponent, defineAsyncComponent} from 'vue';
 import '@/assets/scss/components/home/header.scss'
 import SecondBadge from "@/components/home/header/SecondBadge.vue";
 
 export default defineComponent({
   name: "Header",
   components: {
+    LazyImg: defineAsyncComponent(() => import('@/components/app/LazyImg.vue')),
     SecondBadge
+  },
+  setup() {
+    const showSecondBadge = () => {
+      const secondBadge = document.getElementById('second-badge') as HTMLElement
+      secondBadge.classList.add('show')
+    }
+
+    return {
+      showSecondBadge
+    }
   }
 })
 </script>
