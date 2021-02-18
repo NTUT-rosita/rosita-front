@@ -23,7 +23,7 @@
 <script lang="ts">
 import {defineComponent, onMounted} from 'vue';
 import '@/assets/scss/pages/home.scss'
-import Header from "@/components/home/Header.vue";
+import Header from "@/components/home/header/Header.vue";
 
 export default defineComponent({
   name: 'Home',
