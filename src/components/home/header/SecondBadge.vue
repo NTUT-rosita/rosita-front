@@ -1,5 +1,5 @@
 <template>
-  <svg id="second-badge" class="pt-4 px-20 relative max-w-full" viewBox="0 0 470.21 77.68">
+  <svg id="second-badge" class="pt-4 px-12 sm:px-14 md:px-20 relative max-w-full" viewBox="0 0 470.21 77.68">
     <use xlink:href="#rosita-second-badge.svg"/>
   </svg>
 </template>
