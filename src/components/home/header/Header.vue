@@ -1,7 +1,7 @@
 <template>
   <div id="header-container">
     <header class="header relative">
-      <div class="header__bg bg-cover bg-center bg-no-repeat bg-fixed"/>
+      <div class="header__bg bg-cover bg-center bg-no-repeat"/>
       <span class="absolute max-w-md w-3/4 sm:w-4/6 md:w-1/2 center">
         <LazyImg d-alt="NTUT-badge" d-src="https://i.imgur.com/vYc6cWk.webp" @imgLoaded="showSecondBadge"/>
         <SecondBadge class="opacity-0"/>
