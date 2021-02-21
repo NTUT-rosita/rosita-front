@@ -5,7 +5,7 @@
       <div class="header__bg bg-cover bg-center bg-no-repeat"/>
       <span class="absolute max-w-md w-3/4 sm:w-4/6 md:w-1/2 center">
         <LazyImg d-alt="NTUT-badge" d-src="https://i.imgur.com/vYc6cWk.webp" @imgLoaded="showSecondBadge"/>
-        <SecondBadge class="opacity-0"/>
+        <SecondBadge id="second-badge" class="pt-4 px-12 sm:px-14 md:px-20 opacity-0"/>
       </span>
     </header>
   </div>
@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, defineAsyncComponent, onMounted, nextTick } from 'vue';
 import '@/assets/scss/components/home/header.scss'
-import SecondBadge from "@/components/home/header/SecondBadge.vue";
+import SecondBadge from "@/components/app/SecondBadge.vue";
 import NavBar from "@/components/app/NavBar.vue";
 
 export default defineComponent({
@@ -26,12 +26,13 @@ export default defineComponent({
   },
   setup() {
     const showSecondBadge = () => {
-      const secondBadge = document.getElementById('second-badge') as HTMLElement
+      const secondBadge = document.querySelector('#second-badge') as HTMLElement
+      secondBadge.classList.remove('opacity-0')
       secondBadge.classList.add('show')
     }
 
     const useNavBarObserverService = () => {
-      const navBar = document.getElementById('nav-bar') as HTMLElement
+      const navBar = document.querySelector('.nav-bar') as HTMLElement
       const header = document.getElementById('header') as HTMLElement
       const observer = new IntersectionObserver(
           async ([e]) => {
