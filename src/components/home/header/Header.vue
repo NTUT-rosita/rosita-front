@@ -1,5 +1,5 @@
 <template>
-  <div id="header-container">
+  <div class="header-container">
     <header id="header" class="header relative">
       <NavBar class="opacity-0"/>
       <div class="header__bg bg-cover bg-center bg-no-repeat"/>

@@ -1,6 +1,6 @@
 @import "../../shared";
 
-#header-container {
+.header-container {
   .center {
     @include absolute-transform-center;
   }
