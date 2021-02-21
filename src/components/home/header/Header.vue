@@ -35,9 +35,20 @@ export default defineComponent({
       const header = document.getElementById('header') as HTMLElement
       const observer = new IntersectionObserver(
           async ([e]) => {
+            // wait a while for better performance.
+            await new Promise<void>(resolve => setTimeout(() => resolve(), 50))
             navBar.classList.toggle("opacity-0", e.intersectionRatio > 0)
           },
-          { threshold: [0] }
+          {
+            threshold: [...((): Array<number> => {
+              const points = []
+              let amount = 100 // the percentage of header's height
+              while (amount >= 0) {
+                points.push(amount-- / 100)
+              }
+              return points
+            })()]
+          }
       );
       observer.observe(header);
     }
