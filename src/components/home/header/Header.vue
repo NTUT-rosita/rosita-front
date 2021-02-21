@@ -1,7 +1,7 @@
 <template>
   <div id="header-container">
     <header id="header" class="header relative">
-      <NavBar/>
+      <NavBar class="opacity-0"/>
       <div class="header__bg bg-cover bg-center bg-no-repeat"/>
       <span class="absolute max-w-md w-3/4 sm:w-4/6 md:w-1/2 center">
         <LazyImg d-alt="NTUT-badge" d-src="https://i.imgur.com/vYc6cWk.webp" @imgLoaded="showSecondBadge"/>
@@ -34,9 +34,8 @@ export default defineComponent({
       const navBar = document.getElementById('nav-bar') as HTMLElement
       const header = document.getElementById('header') as HTMLElement
       const observer = new IntersectionObserver(
-          ([e]) => {
-            navBar.classList.toggle("visible", e.intersectionRatio === 0)
-            navBar.classList.toggle("invisible", e.intersectionRatio > 0)
+          async ([e]) => {
+            navBar.classList.toggle("opacity-0", e.intersectionRatio > 0)
           },
           { threshold: [0] }
       );
