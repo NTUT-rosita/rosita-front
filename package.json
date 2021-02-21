@@ -9,7 +9,7 @@
     "analyze": "vue-cli-service build --analyze"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
+    "core-js": "^3.9.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
   },
@@ -46,7 +46,7 @@
     "postcss-plugin": "^1.0.0",
     "postcss-preset-env": "^6.7.0",
     "prerender-spa-plugin": "^3.4.0",
-    "sass": "^1.32.7",
+    "sass": "^1.32.8",
     "sass-loader": "10.1.1",
     "svg-sprite-loader": "^5.2.1",
     "tailwindcss": "yarn:@tailwindcss/postcss7-compat@^2.0.2",

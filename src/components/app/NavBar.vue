@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <nav class="sticky -top-px z-10 shadow-sm bg-white">123</nav>
 </template>
 
 <script lang="ts">
