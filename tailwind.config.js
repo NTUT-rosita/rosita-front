@@ -7,10 +7,17 @@ module.exports = {
     content: [
       './public/**/*.html',
       './src/**/*.{vue,js,ts,jsx,tsx}'
-    ]
+    ],
+    options: {
+      keyframes: true,
+      fontFace: true,
+      variables: true,
+    },
+    mode: 'all',
+    preserveHtmlElements: false,
   },
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'class'
   theme: {
     screens: {
       sm: '640px',

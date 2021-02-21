@@ -6,8 +6,6 @@
   }
 
   .header {
-    overflow: hidden;
-
     &__bg {
       @include fix-100vh-in-mobile-WebKit;
       -webkit-transform: translatez(0);
