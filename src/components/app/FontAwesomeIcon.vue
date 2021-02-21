@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, computed, PropType} from "vue";
-import {findIconDefinition} from "@fortawesome/fontawesome-svg-core";
-import {IconPrefix, IconName} from "@fortawesome/fontawesome-common-types"
+import { defineComponent, computed, PropType } from "vue";
+import { findIconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { IconPrefix, IconName } from "@fortawesome/fontawesome-common-types"
 
 export default defineComponent({
   name: "FontAwesomeIcon",
@@ -37,7 +37,7 @@ export default defineComponent({
     const width = computed(() => definition.value?.icon[0] ?? 0);
     const height = computed(() => definition.value?.icon[1] ?? 0);
     const svgPath = computed(() => definition.value?.icon[4] ?? '');
-    return {width, height, svgPath};
+    return { width, height, svgPath };
   }
 });
 </script>

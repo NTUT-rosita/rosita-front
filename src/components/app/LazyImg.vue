@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, onMounted, ref, watchEffect} from 'vue';
+import { defineComponent, onMounted, ref, watchEffect } from 'vue';
 import lozad from 'lozad'
 
 export default defineComponent({
@@ -30,7 +30,7 @@ export default defineComponent({
       required: false
     }
   },
-  setup(props, {emit}) {
+  setup(props, { emit }) {
     const observer = lozad(
         '.lozad', {
           loaded: async (element: HTMLImageElement) => {

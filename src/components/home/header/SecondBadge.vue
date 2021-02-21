@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 import '@/assets/svg/rosita-second-badge.svg'
 
 export default defineComponent({

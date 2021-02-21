@@ -33,7 +33,7 @@ module.exports = {
       .end()
       .use("svg-sprite-loader")
       .loader("svg-sprite-loader")
-      .options({symbolId: "[name].svg"})
+      .options({ symbolId: "[name].svg" })
   },
   configureWebpack: config => {
     const plugins = []
