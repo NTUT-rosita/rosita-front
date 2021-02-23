@@ -3,6 +3,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import FontAwesomeIcon from "@/components/app/FontAwesomeIcon.vue";
 // import iconConfigs from '@/assets/json/icons.json'
 import { faSmile } from '@fortawesome/free-solid-svg-icons/'
+import { faGithub, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+
 // fas[icon.prefix + icon.name[0].toUpperCase() + icon.name.slice(1)]
 
 // const solidFontAwesomeIconPackPath = '@fortawesome/free-solid-svg-icons/'
@@ -22,7 +24,7 @@ import { faSmile } from '@fortawesome/free-solid-svg-icons/'
 //   () => library.add(...requiredIconLibrary)
 // )
 
-library.add(faSmile)
+library.add(faSmile, faGithub, faInstagram, faFacebook)
 
 export default FontAwesomeIcon;
 
