@@ -16,7 +16,8 @@
             "mrmlnc.vscode-scss",
             "wix.vscode-import-cost",
             "coenraads.bracket-pair-colorizer",
-            "editorconfig.editorconfig"
+            "editorconfig.editorconfig",
+            "bradlc.vscode-tailwindcss"
         ],
     },
     "settings": {
@@ -37,6 +38,7 @@
         "eslint.run": "onSave",
         "eslint.format.enable": true,
         "editor.formatOnSave": true,
+        "editor.tabSize": 2,
         "importCost.javascriptExtensions": [
             "\\.jsx?$",
             "\\.tsx?$",
