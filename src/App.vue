@@ -4,13 +4,18 @@
       <component :is="Component"/>
     </keep-alive>
   </router-view>
+  <Footer></Footer>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Footer from '@/components/app/Footer.vue'
 import '@/assets/scss/app.scss'
 
 export default defineComponent({
-  name: 'App'
+  name: 'App',
+  components: {
+    Footer
+  }
 })
 </script>
