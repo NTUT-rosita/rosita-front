@@ -3,6 +3,158 @@
   @return 2*$pi*$r;
 }
 
-.nav-drawer{
+.nav {
+  height: 50px;
+  width: 50px;
 
+  .logo {
+    transform: translateX(-50%);
+    transition: .5s ease-in-out .5s;
+    will-change: transform;
+
+    svg {
+      height: 2em;
+      width: auto;
+    }
+  }
+
+  &__toggle {
+    z-index: 10002;
+    transition: background-color .15s linear;
+  }
+
+  &__menu {
+    width: 60vw;
+    z-index: 10001;
+  }
+
+  &__item {
+    transition: all .3s cubic-bezier(0.000, 0.995, 0.990, 1.000) .4s;
+  }
+
+  @for $i from 1 through 99 {
+    &__item:nth-child(#{$i}) {
+      transform: translateY(-40px * $i);
+    }
+  }
+
+  &__link {
+    font-size: calc((5vw + 2vh) / 2);
+    transition: .2s;
+
+    &:hover,
+    &:focus {
+      transition: .2s;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transition: .2s;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+.menu-icon {
+  transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+
+  &__bar,
+  &__circle {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+
+  &__bar {
+    transform-origin: 50% 50%;
+    transition: transform .25s ease-in-out;
+  }
+
+  &__circle {
+    transition: stroke-dashoffset .3s linear;
+    stroke-dashoffset: circumference(23);
+    stroke-dasharray: circumference(23);
+  }
+}
+
+.splash {
+  z-index: 10000;
+  transition: .5s ease-in-out .5s;
+
+  .drawer {
+    height: 101vh;
+    transform-origin: 50% 50%;
+    transition: .5s ease-in-out .5s;
+    will-change: transform;
+  }
+}
+
+.nav:target,
+.nav--open {
+  > .splash {
+    transition: .5s ease-in-out;
+
+    .drawer {
+      transition: .5s ease-in-out;
+      width: 60vw;
+
+      .logo {
+        transition: .5s ease-in-out;
+        opacity: 1;
+      }
+    }
+  }
+
+  .menu-icon {
+    transform: rotate(180deg);
+
+    &__circle {
+      stroke-dashoffset: 0;
+    }
+
+    &__bar:nth-child(1),
+    &__bar:nth-child(4) {
+      opacity: 0;
+    }
+
+    &__bar:nth-child(2) {
+      transform: rotate(45deg);
+    }
+
+    &__bar:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .nav {
+    &__menu {
+      visibility: visible;
+      position: fixed;
+    }
+
+    &__toggle {
+      position: fixed;
+    }
+
+    &__item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.bottom-layer {
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  transition-timing-function: ease-in-out;
+  transition: .5s .5s;
+
+  &--open {
+    background: rgba(0, 0, 0, .6);
+    transition-timing-function: ease-in-out;
+    transition: .5s;
+    visibility: visible;
+  }
 }

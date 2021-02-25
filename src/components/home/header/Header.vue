@@ -1,7 +1,7 @@
 <template>
   <div class="header-container">
     <header id="header" class="header relative">
-      <NavBar class="opacity-0"/>
+      <NavBar class="hidden"/>
       <div class="header__bg bg-cover bg-center bg-no-repeat"/>
       <span class="absolute max-w-md w-3/4 sm:w-4/6 md:w-1/2 center">
         <LazyImg d-alt="NTUT-badge" d-src="https://i.imgur.com/vYc6cWk.webp" @imgLoaded="showSecondBadge"/>
@@ -33,6 +33,11 @@ export default defineComponent({
 
     const useNavBarObserverService = () => {
       const navBar = document.querySelector('.nav-bar') as HTMLElement
+
+      // prevent browser show the navbar before detect.
+      navBar.classList.add('opacity-0')
+      navBar.classList.remove('hidden')
+
       const header = document.getElementById('header') as HTMLElement
       const observer = new IntersectionObserver(
           async ([e]) => {

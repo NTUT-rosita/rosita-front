@@ -6,6 +6,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "index"
+name: "NavDrawerItem"
 })
 </script>
