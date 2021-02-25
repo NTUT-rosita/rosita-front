@@ -17,7 +17,7 @@
         _
       </svg>
     </a>
-    <ul id="menu" class="nav__menu p-0 flex flex-col justify-start h-auto right-0 absolute top-32 invisible m-0 list-none" hidden tabindex="-1">
+    <ul id="menu" class="nav__menu p-0 fixed flex flex-col justify-start h-auto right-0 top-32 invisible m-0 list-none" hidden tabindex="-1">
       <li v-for="(navItem, key) in navItems" :key="key" class="nav__item opacity-0">
         <component :is="navItem.external?ExternalLink:InnerLink" :to="navItem.link"
                    class="nav__link text-black dark:text-white block text-left uppercase tracking-widest no-underline p-4 my-1.5 mx-4 rounded-xl ease-in-out
