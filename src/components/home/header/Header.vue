@@ -15,7 +15,7 @@
 import { defineComponent, defineAsyncComponent, onMounted, nextTick } from 'vue';
 import '@/assets/scss/components/home/header.scss'
 import SecondBadge from "@/components/app/SecondBadge.vue";
-import NavBar from "@/components/app/NavBar.vue";
+import NavBar from "@/components/app/Navbar/NavBar.vue";
 
 export default defineComponent({
   name: "Header",

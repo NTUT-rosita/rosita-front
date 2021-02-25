@@ -19,17 +19,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue';
+import { defineComponent } from 'vue';
 import '@/assets/scss/components/app/nav-var.scss'
 import SecondBadge from "@/components/app/SecondBadge.vue";
-import ExternalLink from "@/components/app/ExternalLink.vue";
-import InnerLink from "@/components/app/InnerLink.vue";
-
-type NavItem = {
-  readonly name: string
-  readonly link: string
-  readonly external?: boolean
-}
+import ExternalLink from "@/components/app/links/ExternalLink.vue";
+import InnerLink from "@/components/app/links/InnerLink.vue";
+import { navItems } from "@/components/app/Navbar/navbar";
 
 export default defineComponent({
   name: "NavBar",
@@ -39,40 +34,10 @@ export default defineComponent({
     InnerLink
   },
   setup() {
-    const data = reactive({
-      navItems: [
-        {
-          name: '首頁',
-          link: '/',
-          external: false
-        },
-        {
-          name: '校務資訊',
-          link: '/',
-          external: false
-        },
-        {
-          name: '研究',
-          link: '/',
-          external: false
-        },
-        {
-          name: '各校比較資訊',
-          link: '/',
-          external: false,
-        },
-        {
-          name: '線上分析工具',
-          link: 'https://google.com',
-          external: true
-        }
-      ] as Array<NavItem>
-    })
-
     return {
+      navItems,
       InnerLink,
       ExternalLink,
-      ...toRefs(data)
     }
   }
 })
