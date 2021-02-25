@@ -6,12 +6,10 @@
       <div
           class="sm:inline-block my-auto relative hidden md:w-3/4 lg:w-3/5 xl:w-1/2 ml-8">
         <span class="item-box flex flex-nowrap justify-between relative whitespace-nowrap overflow-auto">
-          <component :is="item.external?ExternalLink:InnerLink" v-for="(item, key) in navItems" :key="key"
-                     :to="item.link" class="self-center justify-center items-center">
-            <div class="mx-2 text-base sm:text-sm lg:text-lg xl:text-xl">
-              {{ item.name }}
-            </div>
-          </component>
+          <NavBarItem v-for="(item, key) in navItems" :key="key"
+                      :external="item.external"
+                      :link="item.link"
+                      :name="item.name"/>
         </span>
       </div>
     </div>
@@ -24,14 +22,14 @@ import '@/assets/scss/components/app/nav-var.scss'
 import SecondBadge from "@/components/app/SecondBadge.vue";
 import ExternalLink from "@/components/app/links/ExternalLink.vue";
 import InnerLink from "@/components/app/links/InnerLink.vue";
+import NavBarItem from "@/components/app/Navbar/NavBarItem.vue";
 import { navItems } from "@/components/app/Navbar/navbar";
 
 export default defineComponent({
   name: "NavBar",
   components: {
     SecondBadge,
-    ExternalLink,
-    InnerLink
+    NavBarItem
   },
   setup() {
     return {
