@@ -202,6 +202,9 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      rosita: [
+        'PingFang TC', 'Din', 'Microsoft YaHei', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'
+      ]
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
