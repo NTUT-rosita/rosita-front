@@ -20,12 +20,11 @@
     </a>
     <ul id="menu" class="nav__menu p-0 fixed flex flex-col justify-start h-auto right-0 top-32 invisible m-0 list-none"
         hidden tabindex="-1">
-      <li v-for="(navItem, key) in navItems" :key="key" class="nav__item opacity-0">
-        <component :is="navItem.external?ExternalLink:InnerLink" :to="navItem.link"
-                   class="nav__link text-black dark:text-white block text-left uppercase tracking-widest no-underline p-4 my-1.5 mx-4 rounded-xl
-                   ease-in-out outline-none"
-                   rel="noreferrer noopener">&#9733;{{ navItem.name }}
-        </component>
+      <li class="nav__item opacity-0">
+        <NavDrawerItem v-for="(navItem, key) in navItems" :key="key"
+                       :external="navItem.external"
+                       :link="navItem.link"
+                       :name="navItem.name"/>
       </li>
     </ul>
     <div class="splash fixed right-0 top-0 h-px w-0">
@@ -45,13 +44,13 @@ import '@/assets/scss/components/app/nav-drawer.scss'
 import { navItems } from "@/components/app/Navbar/navbar";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import SecondBadge from "@/components/app/SecondBadge.vue";
-import ExternalLink from "@/components/app/links/ExternalLink.vue";
-import InnerLink from "@/components/app/links/InnerLink.vue";
+import NavDrawerItem from "@/components/app/Navbar/NavDrawerItem.vue";
 
 export default defineComponent({
   name: "NavDrawer",
   components: {
-    SecondBadge
+    SecondBadge,
+    NavDrawerItem
   },
   setup() {
     onMounted(() => {
@@ -88,8 +87,6 @@ export default defineComponent({
     })
 
     return {
-      ExternalLink,
-      InnerLink,
       navItems
     }
   }
