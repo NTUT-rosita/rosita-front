@@ -6,7 +6,8 @@
        inline-block relative p-0 border-0 bg-transparent outline-none cursor-pointer rounded-full
        dark:hover:bg-gray-900 hover:bg-gray-200 dark:focus:bg-gray-900 focus:bg-gray-200"
        rel="noreferrer noopener" role="button">
-      <svg class="menu-icon fill-current block cursor-pointer rotate-0" height="50" viewBox="0 0 50 50" width="50" xmlns="http://www.w3.org/2000/svg">
+      <svg class="menu-icon fill-current block cursor-pointer rotate-0" height="50" viewBox="0 0 50 50" width="50"
+           xmlns="http://www.w3.org/2000/svg">
         <g>
           <line class="menu-icon__bar stroke-current rotate-0" x1="13" x2="37" y1="16.5" y2="16.5"/>
           <line class="menu-icon__bar stroke-current rotate-0" x1="13" x2="37" y1="24.5" y2="24.5"/>
@@ -17,10 +18,11 @@
         _
       </svg>
     </a>
-    <ul id="menu" class="nav__menu p-0 fixed flex flex-col justify-start h-auto right-0 top-32 invisible m-0 list-none" hidden tabindex="-1">
+    <ul id="menu" class="nav__menu p-0 fixed flex flex-col justify-start h-auto right-0 top-32 invisible m-0 list-none"
+        hidden tabindex="-1">
       <li v-for="(navItem, key) in navItems" :key="key" class="nav__item opacity-0">
         <component :is="navItem.external?ExternalLink:InnerLink" :to="navItem.link"
-                   class="nav__link text-black dark:text-white block text-left uppercase tracking-widest no-underline p-4 my-1.5 mx-4 rounded-xl ease-in-out
+                   class="nav__link text-black dark:text-white block text-left uppercase tracking-widest no-underline p-4 my-1.5 mx-4 rounded-xl
                    ease-in-out outline-none"
                    rel="noreferrer noopener">&#9733;{{ navItem.name }}
         </component>
@@ -28,11 +30,8 @@
     </ul>
     <div class="splash fixed right-0 top-0 h-px w-0">
       <div class="drawer bg-white dark:bg-gray-800 block fixed w-0 top-0 h-0 right-0">
-        <div class="logo top-16 left-24 relative inline-block m-auto">
-          <svg fill="white" viewBox="0 0 2703 630">
-            <use xlink:href="#npc_text.svg"/>
-            _
-          </svg>
+        <div class="logo top-16 left-24 relative inline-block m-auto mx-4">
+          <SecondBadge class="fill-current"/>
         </div>
       </div>
     </div>
@@ -45,12 +44,15 @@ import { defineComponent, onMounted } from 'vue';
 import '@/assets/scss/components/app/nav-drawer.scss'
 import { navItems } from "@/components/app/Navbar/navbar";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-
+import SecondBadge from "@/components/app/SecondBadge.vue";
 import ExternalLink from "@/components/app/links/ExternalLink.vue";
 import InnerLink from "@/components/app/links/InnerLink.vue";
 
 export default defineComponent({
   name: "NavDrawer",
+  components: {
+    SecondBadge
+  },
   setup() {
     onMounted(() => {
       const nav = document.querySelector('#nav') as HTMLElement;
