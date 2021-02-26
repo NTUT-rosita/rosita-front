@@ -23,7 +23,7 @@ export default defineComponent({
     type: {
       type: String as PropType<IconPrefix>,
       default: "fas",
-      required: false
+      required: true
     },
     class: String
   },
