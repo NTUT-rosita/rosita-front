@@ -1,0 +1,15 @@
+.nav-bar {
+  .menu {
+    -webkit-align-items: baseline;
+
+    .item-box {
+      -webkit-align-self: center;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
