@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" class="nav block sm:hidden flex justify-center overflow-hidden" role="navigation">
+  <div id="nav" class="nav align-baseline my-auto sm:hidden flex justify-center overflow-hidden" role="navigation">
     <a aria-controls="menu" aria-expanded="false"
        class="nav__toggle
        text-black dark:text-white

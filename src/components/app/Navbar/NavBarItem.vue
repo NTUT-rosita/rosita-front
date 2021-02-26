@@ -1,7 +1,7 @@
 <template>
   <component :is="external?ExternalLink:InnerLink" :to="link"
-             class="self-center justify-center items-center hover:bg-gray-900">
-    <div class="mx-2 text-base sm:text-sm lg:text-lg xl:text-xl">
+             class="self-center justify-center items-center ease-in-out transition hover:bg-gray-200 dark:hover:bg-gray-700 h-full flex px-2 md:px-4">
+    <div class="align-baseline text-base sm:text-sm lg:text-lg xl:text-xl font-black">
       {{ name }}
     </div>
   </component>
