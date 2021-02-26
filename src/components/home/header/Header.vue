@@ -59,7 +59,14 @@ export default defineComponent({
       observer.observe(header);
     }
 
+    const setHeaderBackgroundImageHeight = () => {
+      const headerBg = document.querySelector('.header__bg') as HTMLDivElement
+      const viewportHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+      headerBg.style.height = viewportHeight.toString() + 'px'
+    }
+
     onMounted(async () => {
+      setHeaderBackgroundImageHeight()
       await nextTick()
       useNavBarObserverService()
     })

@@ -1,5 +1,6 @@
 <template>
-  <component :is="external?ExternalLink:InnerLink" :to="link" class="self-center justify-center items-center">
+  <component :is="external?ExternalLink:InnerLink" :to="link"
+             class="self-center justify-center items-center hover:bg-gray-900">
     <div class="mx-2 text-base sm:text-sm lg:text-lg xl:text-xl">
       {{ name }}
     </div>
