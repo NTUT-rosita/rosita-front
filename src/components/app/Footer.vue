@@ -9,7 +9,7 @@
         <div class="py-2 border-4 border-black rounded-3xl">
           {{ cardItem.title }}
         </div>
-        <div class="test-container">
+        <div class="card-content-container">
           <div
             class="mt-4 p-4 card-content border-4 border-black rounded-3xl"
             v-html="cardItem.content"
@@ -106,26 +106,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.card-content-container {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
 .card-content {
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.test {
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    opacity: 0.1;
-}
-
-.test-container {
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
 }
 </style>
