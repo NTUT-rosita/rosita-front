@@ -1,17 +1,17 @@
 <template>
-  <div class="bg-gray-100">
-    <div class="mx-10 pt-4 pb-3 border-b-2 border-gray-300 flex flex-wrap overflow-hidden">
+  <div class="bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+    <div class="mx-10 pt-4 pb-2 border-b-2 border-gray-300 flex flex-wrap overflow-hidden">
       <div
         v-for="(cardItem, index) in cardItems"
         :key="`cardItem-${index}`"
         class="my-4 px-4 text-center w-full md:w-1/2 lg:w-1/4"
       >
-        <div class="py-2 border-4 border-black rounded-3xl">
+        <div class="py-2 border-4 border-black dark:border-gray-100 rounded-3xl">
           {{ cardItem.title }}
         </div>
         <div class="card-content-container">
           <div
-            class="mt-4 p-4 card-content border-4 border-black rounded-3xl"
+            class="mt-4 p-4 card-content border-4 border-black dark:border-gray-200 rounded-3xl"
             v-html="cardItem.content"
           ></div>
         </div>
@@ -23,7 +23,7 @@
         <h5
           v-for="otherInfoItem in otherInfoItems"
           :key="otherInfoItem"
-          class="my-2 text-gray-500"
+          class="my-2 text-gray-500 dark:text-gray-200"
         >
           <a class="border-b-2 hover:border-black" :href="otherInfoItem.href">{{ otherInfoItem.title }}</a>
         </h5>
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-    <div class="py-2 text-center text-gray-500">Copyright © 2021 NTUT Rosita</div>
+    <div class="py-2 text-center text-gray-500 dark:text-gray-200">Copyright © 2021 NTUT Rosita</div>
   </div>
 </template>
 
