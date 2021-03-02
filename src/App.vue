@@ -4,14 +4,14 @@
       <component :is="Component"/>
     </keep-alive>
   </router-view>
-  <Footer :card-items="cardItems" :other-info-items="otherInfoItems" :icon-items="iconItems"></Footer>
+  <Footer :cardContents="footerCardContents" :legelLinks="footerLegelLinks" :communityMediaIcons="footerCommunityMediaIcons"></Footer>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import Footer from '@/components/app/Footer.vue'
+import { defineComponent } from 'vue'
+import Footer from '@/components/app/footer/Footer.vue'
+import { getFooterCardContents, getFooterLegelLinks, getFooterCommunityMediaIcons  } from '@/components/app/footer/get-footer-data'
 import '@/assets/scss/app.scss'
-import footerData from '@/assets/json/footer-data.json'
 
 export default defineComponent({
   name: 'App',
@@ -19,27 +19,10 @@ export default defineComponent({
     Footer
   },
   setup() {
-    interface CardItem {
-      title: string;
-      content: string;
-      url: string;
-    }
-
-    interface OtherInfoItem {
-      title: string;
-      url: string;
-    }
-
-    interface IconItem {
-      name: string;
-      type: string;
-      url: string;
-    }
-
     return {
-      cardItems: ref<Array<CardItem>>(footerData.cardItems),
-      otherInfoItems: ref<Array<OtherInfoItem>>(footerData.otherInfoItems),
-      iconItems: ref<Array<IconItem>>(footerData.iconItems)
+      footerCardContents: getFooterCardContents(),
+      footerLegelLinks: getFooterLegelLinks(),
+      footerCommunityMediaIcons: getFooterCommunityMediaIcons()
     }
   }
 })

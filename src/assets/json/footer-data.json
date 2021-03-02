@@ -1,5 +1,5 @@
 {
-  "cardItems": [
+  "cardContents": [
     {
       "title": "辦公時間",
       "content": "<div class='my-auto'><h2 class='text-lg mb-2'>平日</h2>8:30 AM ~ 12:00 AM<br />13:30 PM ~ 17:00 PM</div>",
@@ -16,7 +16,7 @@
       "url": "https://i.imgur.com/2yEBf8o.webp"
     }
   ],
-  "otherInfoItems": [
+  "legelLinks": [
     {
       "title": "網站地圖",
       "url": "#"
@@ -26,7 +26,7 @@
       "url": "#"
     }
   ],
-  "iconItems": [
+  "communityMediaIcons": [
     {
       "name":"instagram",
       "type": "fab",
