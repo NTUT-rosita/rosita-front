@@ -25,13 +25,13 @@
           :key="otherInfoItem"
           class="my-2 text-gray-500 dark:text-gray-200"
         >
-          <a class="border-b-2 hover:border-black" :href="otherInfoItem.href">{{ otherInfoItem.title }}</a>
+          <a class="border-b-2 hover:border-black" :href="otherInfoItem.url">{{ otherInfoItem.title }}</a>
         </h5>
         <div class="my-2">
           <a
             v-for="iconItem in iconItems"
             :key="iconItem"
-            :href="iconItem.href"
+            :href="iconItem.url"
           >
             <Icon
               class="mx-4 inline-block"
@@ -48,60 +48,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Footer",
-  setup() {
-    interface CardItem {
-      title: string;
-      content: string;
-      href: string;
+  props: {
+    cardItems: {
+      type: () => ([{ title: String, content: String, url: String }]),
+      default: () => ([{ title: "", content: "", url: "" }]),
+      required: true
+    },
+    otherInfoItems: {
+      type: () => ([{ title: String, url: String }]),
+      default: () => ([{ title: "", url: "" }]),
+      required: true
+    },
+    iconItems: {
+      type: () => ([{ name: String, type: String, url: String }]),
+      default: () => ([{ name: "", type: "", url: "" }]),
+      required: true
     }
-
-    interface OtherInfoItem {
-      title: string;
-      href: string;
-    }
-
-    interface IconItem {
-      name: string;
-      type: string;
-      href: string;
-    }
-
-    const cardItems = ref<Array<CardItem>>([
-      {
-        title: "辦公時間",
-        content:
-          "<div class='my-auto'><h2 class='text-lg mb-2'>平日</h2>8:30 AM ~ 12:00 AM<br />13:30 PM ~ 17:00 PM</div>",
-        href: "https://i.imgur.com/kcClJic.webp"
-      },
-      {
-        title: "通訊地址",
-        content: "<div>台北市大安區忠孝東路三段一號，台灣，地球</div>",
-        href: "https://i.imgur.com/h0fR1wm.webp"
-      },
-      { title: "聯絡我們", content: "<div>None</div>", href: "https://i.imgur.com/2yEBf8o.webp" },
-    ]);
-
-    const otherInfoItems = ref<Array<OtherInfoItem>>([
-      { title: "網站地圖", href: "#" },
-      { title: "隱私權政策", href: "#" },
-    ]);
-
-    const iconItems = ref<Array<IconItem>>([
-      { name: "instagram", type: "fab", href: "#" },
-      { name: "facebook", type: "fab", href: "#" },
-      { name: "github", type: "fab", href: "#" },
-    ]);
-
-    return {
-      cardItems,
-      otherInfoItems,
-      iconItems,
-    };
-  },
+  }
 });
 </script>
 
