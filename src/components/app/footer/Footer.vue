@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-10te0 dark:bg-gray-800 dark:text-gray-200">
+  <div class="bg-gray-10te0 dark:bg-gray-800 dark:text-gray-200 text-lg">
     <div class="mx-10 pt-4 pb-2 border-b-2 border-gray-300 flex flex-wrap overflow-hidden">
       <div
         v-for="(cardContent, index) in cardContents"
@@ -75,7 +75,7 @@ export default defineComponent({
 }
 
 .card-content {
-  height: 150px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
