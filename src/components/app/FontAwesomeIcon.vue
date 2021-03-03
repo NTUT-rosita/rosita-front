@@ -1,6 +1,7 @@
 <template>
   <svg
       :class="$props.class"
+      class="inline-block"
       :viewBox="`0 0 ${width} ${height}`"
       xmlns="http://www.w3.org/2000/svg"
   >
