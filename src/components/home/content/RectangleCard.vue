@@ -1,11 +1,11 @@
 <template>
-  <div class="container mx-auto">
-    <div v-for="cardItem in cardItems" :key="`home-rectangle-card-${cardItem.title}`" class="my-8 card-item grid grid-cols-1 md:grid-cols-2 bg-black border-4 dark:border-gray-200 text-white rounded-3xl mx-8">
+  <div class="container mx-auto grid grid-cols-1 xl:grid-cols-2">
+    <div v-for="cardItem in cardItems" :key="`home-rectangle-card-${cardItem.title}`" class="my-8 card-item grid grid-cols-1 lg:grid-cols-2 bg-black border-4 dark:border-gray-200 text-white rounded-3xl mx-8">
         <div class="px-20">
           <h1 class="mt-20 mb-10 text-4xl">{{ cardItem.title }}</h1>
           <div>{{ cardItem.content }}</div>
         </div>
-        <div class="border-white border-t-2 md:border-0 md:border-l-2 flex items-center justify-center">
+        <div class="border-white border-t-2 lg:border-0 lg:border-l-2 flex items-center justify-center">
           <div>img</div>
         </div>
     </div>
