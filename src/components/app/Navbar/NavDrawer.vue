@@ -38,12 +38,12 @@
       </div>
     </div>
   </div>
-  <div ref="drawerBottomLayer" class="bottom-layer fixed top-0 left-0 invisible"
+  <div v-show="isMenuOpen" ref="drawerBottomLayer" class="bottom-layer fixed top-0 left-0 invisible"
        @click.prevent.stop="toggleBottomLayer"/>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, nextTick } from 'vue';
 import '@/assets/scss/components/app/nav-drawer.scss'
 import { navItems } from "@/components/app/Navbar/navbar";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
@@ -62,24 +62,39 @@ export default defineComponent({
     const drawerToggle = ref<HTMLLinkElement>({} as HTMLLinkElement)
     const drawerBottomLayer = ref<HTMLDivElement>({} as HTMLDivElement)
 
-    let isMenuOpen = false;
+    let isMenuOpen = ref(false);
 
-    const toggleNavigationDrawer = () => {
-      isMenuOpen = !isMenuOpen;
-      drawerToggle.value.setAttribute('aria-expanded', String(isMenuOpen));
-      drawerMenu.value.hidden = !isMenuOpen;
-      drawerContainer.value.classList.toggle('drawer--open');
-      drawerBottomLayer.value.classList.toggle('bottom-layer--open');
-      isMenuOpen ? disableBodyScroll(drawerBottomLayer.value) : enableBodyScroll(drawerBottomLayer.value)
+    const openDrawer = async () => {
+      isMenuOpen.value = true
+      await nextTick()
+      await new Promise<void>(resolve => setTimeout(() => resolve(), 10))
+      drawerToggle.value.setAttribute('aria-expanded', 'true');
+      drawerMenu.value.hidden = false;
+      drawerContainer.value.classList.add('drawer--open');
+      drawerBottomLayer.value.classList.add('bottom-layer--open');
+      disableBodyScroll(drawerBottomLayer.value)
     }
 
-    const toggleBottomLayer = () => {
-      isMenuOpen = false;
-      drawerToggle.value.setAttribute('aria-expanded', String(isMenuOpen));
-      drawerMenu.value.hidden = !isMenuOpen;
+    const closeDrawer = async () => {
+      drawerToggle.value.setAttribute('aria-expanded', 'false');
+      drawerMenu.value.hidden = true;
       drawerContainer.value.classList.remove('drawer--open');
       drawerBottomLayer.value.classList.remove('bottom-layer--open');
       enableBodyScroll(drawerBottomLayer.value)
+      await new Promise<void>(resolve => setTimeout(() => resolve(), 1000))
+      isMenuOpen.value = false
+    }
+
+    const toggleNavigationDrawer = async () => {
+      if (isMenuOpen.value) {
+        await closeDrawer()
+      } else {
+        await openDrawer()
+      }
+    }
+
+    const toggleBottomLayer = async () => {
+      await closeDrawer()
     }
 
     return {
@@ -89,7 +104,8 @@ export default defineComponent({
       drawerToggle,
       drawerBottomLayer,
       toggleNavigationDrawer,
-      toggleBottomLayer
+      toggleBottomLayer,
+      isMenuOpen
     }
   }
 })
