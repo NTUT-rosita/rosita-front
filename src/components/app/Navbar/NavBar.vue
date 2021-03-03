@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import '@/assets/scss/components/app/nav-var.scss'
+import '@/assets/scss/components/app/nav-bar.scss'
 import SecondBadge from "@/components/app/SecondBadge.vue";
 import ExternalLink from "@/components/app/links/ExternalLink.vue";
 import InnerLink from "@/components/app/links/InnerLink.vue";
