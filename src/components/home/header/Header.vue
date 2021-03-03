@@ -1,7 +1,8 @@
 <template>
   <div class="header-container">
     <header id="header" class="header relative">
-      <NavBar class="absolute z-20"/>
+      <NavBar :hide-badge="true" class="absolute z-20"
+              style="background-color: transparent;"/>
       <NavBar class="hidden fixed"/>
       <div class="header__bg bg-cover bg-center bg-no-repeat"/>
       <span class="absolute max-w-md w-3/4 sm:w-4/6 md:w-1/2 center">

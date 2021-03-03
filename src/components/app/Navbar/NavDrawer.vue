@@ -1,15 +1,28 @@
 <template>
   <div ref="drawerContainer"
-       class="drawer align-baseline my-auto sm:hidden flex justify-center overflow-hidden" role="navigation">
+       :class="{
+          ...(['absolute', 'right-0', 'inline-block', 'align-middle', 'm-auto']
+            .reduce((a, v) => ({...a, [v]: hideBadge}), {})),
+       }"
+       class="drawer align-baseline my-auto sm:hidden flex justify-center overflow-hidden"
+       role="navigation">
     <a ref="drawerToggle" aria-controls="menu"
        aria-expanded="false"
        class="drawer__toggle
        text-black dark:text-white
-       inline-block relative p-0 border-0 bg-transparent outline-none cursor-pointer rounded-full
-       dark:hover:bg-gray-900 hover:bg-gray-200 dark:focus:bg-gray-900 focus:bg-gray-200"
+       inline-block relative p-0 border-0 bg-transparent outline-none cursor-pointer rounded-full"
+       :class="{
+          ...(['hover:bg-gray-200', 'focus:bg-gray-200',]
+            .reduce((a, v) => ({...a, [v]: !hideBadge}), {})),
+          ...(['dark:hover:bg-gray-900', 'dark:focus:bg-gray-900']
+            .reduce((a, v) => ({...a, [v]: isMenuOpen || !hideBadge}), {})),
+       }"
        rel="noreferrer noopener" role="button" @click.prevent.stop="toggleNavigationDrawer">
-      <svg class="menu-icon fill-current block cursor-pointer rotate-0" height="50" viewBox="0 0 50 50" width="50"
-           xmlns="http://www.w3.org/2000/svg">
+      <svg
+          :class="{'text-black':hideBadge && !isMenuOpen}"
+          class="menu-icon fill-current block cursor-pointer rotate-0"
+          height="50" viewBox="0 0 50 50" width="50"
+          xmlns="http://www.w3.org/2000/svg">
         <g>
           <line class="menu-icon__bar stroke-current rotate-0" x1="13" x2="37" y1="16.5" y2="16.5"/>
           <line class="menu-icon__bar stroke-current rotate-0" x1="13" x2="37" y1="24.5" y2="24.5"/>
@@ -55,6 +68,13 @@ export default defineComponent({
   components: {
     SecondBadge,
     NavDrawerItem
+  },
+  props: {
+    hideBadge: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
   setup() {
     const drawerContainer = ref<HTMLDivElement>({} as HTMLDivElement)
