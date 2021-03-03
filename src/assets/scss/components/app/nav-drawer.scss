@@ -3,12 +3,11 @@
   @return 2*$pi*$r;
 }
 
-.nav {
+.drawer {
   height: 50px;
   width: 50px;
 
   .logo {
-    //transform: translateX(-50%);
     transition: .5s ease-in-out .5s;
     will-change: transform;
 
@@ -81,7 +80,7 @@
   z-index: 10000;
   transition: .5s ease-in-out .5s;
 
-  .drawer {
+  .drawer__base {
     height: 101vh;
     transform-origin: 50% 50%;
     transition: .5s ease-in-out .5s;
@@ -89,12 +88,12 @@
   }
 }
 
-.nav:target,
-.nav--open {
+.drawer:target,
+.drawer--open {
   > .splash {
     transition: .5s ease-in-out;
 
-    .drawer {
+    .drawer__base {
       transition: .5s ease-in-out;
       width: 60vw;
 
@@ -126,7 +125,7 @@
     }
   }
 
-  .nav {
+  .drawer {
     &__menu {
       visibility: visible;
       position: fixed;

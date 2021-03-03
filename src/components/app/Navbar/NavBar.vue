@@ -1,6 +1,6 @@
 <template>
   <nav
-      class="h-12 lg:h-16 px-1.5 sm:px-2 md:px-2.5 xl:px-4 nav-bar fixed z-10 shadow-md bg-white select-none w-full visible transition duration-200 ease-in-out dark:bg-gray-800 dark:text-white">
+      class="h-12 lg:h-16 px-1.5 sm:px-2 md:px-2.5 xl:px-4 nav-bar z-10 shadow-md bg-white select-none w-full visible transition duration-200 ease-in-out dark:bg-gray-800 dark:text-white">
     <div class="h-full menu relative flex flex-nowrap justify-between">
       <SecondBadge class="my-auto second-badge inline-block w-48 sm:w-52 md:w-56 xl:w-60 2xl:w-72 fill-current self-center"/>
       <NavDrawer/>

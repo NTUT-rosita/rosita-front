@@ -1,11 +1,13 @@
 <template>
-  <div id="nav" class="nav align-baseline my-auto sm:hidden flex justify-center overflow-hidden" role="navigation">
-    <a aria-controls="menu" aria-expanded="false"
-       class="nav__toggle
+  <div ref="drawerContainer"
+       class="drawer align-baseline my-auto sm:hidden flex justify-center overflow-hidden" role="navigation">
+    <a ref="drawerToggle" aria-controls="menu"
+       aria-expanded="false"
+       class="drawer__toggle
        text-black dark:text-white
        inline-block relative p-0 border-0 bg-transparent outline-none cursor-pointer rounded-full
        dark:hover:bg-gray-900 hover:bg-gray-200 dark:focus:bg-gray-900 focus:bg-gray-200"
-       rel="noreferrer noopener" role="button">
+       rel="noreferrer noopener" role="button" @click.prevent.stop="toggleNavigationDrawer">
       <svg class="menu-icon fill-current block cursor-pointer rotate-0" height="50" viewBox="0 0 50 50" width="50"
            xmlns="http://www.w3.org/2000/svg">
         <g>
@@ -18,9 +20,10 @@
         _
       </svg>
     </a>
-    <ul id="menu" class="nav__menu p-0 fixed flex flex-col justify-start h-auto right-0 top-32 invisible m-0 list-none"
+    <ul ref="drawerMenu"
+        class="drawer__menu p-0 fixed flex flex-col justify-start z-20 h-auto right-0 top-32 invisible m-0 list-none"
         hidden tabindex="-1">
-      <li class="nav__item opacity-0">
+      <li class="drawer__item opacity-0">
         <NavDrawerItem v-for="(navItem, key) in navItems" :key="key"
                        :external="navItem.external"
                        :link="navItem.link"
@@ -28,18 +31,19 @@
       </li>
     </ul>
     <div class="splash fixed right-0 top-0 h-px w-0">
-      <div class="drawer bg-white dark:bg-gray-800 block fixed w-0 top-0 h-0 right-0">
+      <div class="drawer__base bg-white dark:bg-gray-800 block fixed w-0 top-0 h-0 right-0">
         <div class="logo top-16 relative inline-block mx-4 max-w-prose">
           <SecondBadge class="fill-current"/>
         </div>
       </div>
     </div>
   </div>
-  <div class="bottom-layer fixed top-0 left-0 invisible"/>
+  <div ref="drawerBottomLayer" class="bottom-layer fixed top-0 left-0 invisible"
+       @click.prevent.stop="toggleBottomLayer"/>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
+import { defineComponent, ref } from 'vue';
 import '@/assets/scss/components/app/nav-drawer.scss'
 import { navItems } from "@/components/app/Navbar/navbar";
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
@@ -53,41 +57,39 @@ export default defineComponent({
     NavDrawerItem
   },
   setup() {
-    onMounted(() => {
-      const nav = document.querySelector('#nav') as HTMLElement;
-      const menu = document.querySelector('#menu') as HTMLUListElement;
-      const menuToggle = document.querySelector('.nav__toggle') as HTMLLinkElement;
-      const bottomLayer = document.querySelector('.bottom-layer') as HTMLDivElement;
-      let isMenuOpen = false;
+    const drawerContainer = ref<HTMLDivElement>({} as HTMLDivElement)
+    const drawerMenu = ref<HTMLUListElement>({} as HTMLUListElement)
+    const drawerToggle = ref<HTMLLinkElement>({} as HTMLLinkElement)
+    const drawerBottomLayer = ref<HTMLDivElement>({} as HTMLDivElement)
 
-      const toggleNavigationDrawer = () => {
-        isMenuOpen = !isMenuOpen;
-        menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
-        menu.hidden = !isMenuOpen;
-        nav.classList.toggle('nav--open');
-        bottomLayer.classList.toggle('bottom-layer--open');
-        isMenuOpen ? disableBodyScroll(bottomLayer) : enableBodyScroll(bottomLayer)
-      }
+    let isMenuOpen = false;
 
-      menuToggle.addEventListener('click', e => {
-        e.preventDefault();
-        toggleNavigationDrawer()
-      });
+    const toggleNavigationDrawer = () => {
+      isMenuOpen = !isMenuOpen;
+      drawerToggle.value.setAttribute('aria-expanded', String(isMenuOpen));
+      drawerMenu.value.hidden = !isMenuOpen;
+      drawerContainer.value.classList.toggle('drawer--open');
+      drawerBottomLayer.value.classList.toggle('bottom-layer--open');
+      isMenuOpen ? disableBodyScroll(drawerBottomLayer.value) : enableBodyScroll(drawerBottomLayer.value)
+    }
 
-      bottomLayer.addEventListener('click', e => {
-        e.preventDefault();
-        isMenuOpen = false;
-        menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
-        menu.hidden = !isMenuOpen;
-        nav.classList.remove('nav--open');
-        bottomLayer.classList.remove('bottom-layer--open');
-        enableBodyScroll(bottomLayer)
-      });
-
-    })
+    const toggleBottomLayer = () => {
+      isMenuOpen = false;
+      drawerToggle.value.setAttribute('aria-expanded', String(isMenuOpen));
+      drawerMenu.value.hidden = !isMenuOpen;
+      drawerContainer.value.classList.remove('drawer--open');
+      drawerBottomLayer.value.classList.remove('bottom-layer--open');
+      enableBodyScroll(drawerBottomLayer.value)
+    }
 
     return {
-      navItems
+      navItems,
+      drawerContainer,
+      drawerMenu,
+      drawerToggle,
+      drawerBottomLayer,
+      toggleNavigationDrawer,
+      toggleBottomLayer
     }
   }
 })

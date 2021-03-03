@@ -1,6 +1,6 @@
 <template>
   <component :is="external?ExternalLink:InnerLink" :to="link"
-             class="nav__link text-black dark:text-white block text-left uppercase tracking-widest no-underline p-4 my-1.5 mx-4 rounded-xl
+             class="drawer__link text-black dark:text-white block text-left uppercase tracking-widest no-underline p-4 my-1.5 mx-4 rounded-xl
                    ease-in-out outline-none"
              rel="noreferrer noopener">&#9733;{{ name }}
   </component>

@@ -1,7 +1,8 @@
 <template>
   <div class="header-container">
     <header id="header" class="header relative">
-      <NavBar class="hidden"/>
+<!--      <NavBar class="absolute bg-transparent"/>-->
+      <NavBar class="hidden fixed"/>
       <div class="header__bg bg-cover bg-center bg-no-repeat"/>
       <span class="absolute max-w-md w-3/4 sm:w-4/6 md:w-1/2 center">
         <LazyImg d-alt="NTUT-badge" d-src="https://i.imgur.com/vYc6cWk.webp" @imgLoaded="showSecondBadge"/>
@@ -32,7 +33,7 @@ export default defineComponent({
     }
 
     const useNavBarObserverService = () => {
-      const navBar = document.querySelector('.nav-bar') as HTMLElement
+      const navBar = document.querySelector('.nav-bar.fixed') as HTMLElement
 
       // prevent browser show the navbar before detect.
       navBar.classList.add('opacity-0')
