@@ -8,14 +8,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import Footer from '@/components/app/Footer.vue'
+import { defineComponent, defineAsyncComponent } from 'vue'
 import '@/assets/scss/app.scss'
 
 export default defineComponent({
   name: 'App',
   components: {
-    Footer
+    Footer: defineAsyncComponent({
+      loader: () => import('@/components/app/Footer.vue'),
+      delay: 50
+    })
   }
 })
 </script>
