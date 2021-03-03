@@ -29,7 +29,7 @@
     </ul>
     <div class="splash fixed right-0 top-0 h-px w-0">
       <div class="drawer bg-white dark:bg-gray-800 block fixed w-0 top-0 h-0 right-0">
-        <div class="logo top-16 left-24 relative inline-block m-auto mx-4">
+        <div class="logo top-16 relative inline-block mx-4 max-w-prose">
           <SecondBadge class="fill-current"/>
         </div>
       </div>
