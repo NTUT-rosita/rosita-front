@@ -4,7 +4,7 @@
       <component :is="Component"/>
     </keep-alive>
   </router-view>
-  <Footer :cardContents="footerCardContents" :legelLinks="footerLegelLinks" :communityMediaIcons="footerCommunityMediaIcons"></Footer>
+  <Footer :card-contents="footerCardContents" :legel-links="footerLegelLinks" :community-media-icons="footerCommunityMediaIcons" />
 </template>
 
 <script lang="ts">
