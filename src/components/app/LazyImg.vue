@@ -1,18 +1,19 @@
 <template>
-  <div ref="imgBg" :data-background-image="dSrc" class="lozad img-box select-none bg-contain bg-no-repeat">
+  <div :id="'d'+uid" ref="imgBg" :data-background-image="dSrc" class="lozad img-box select-none bg-contain bg-no-repeat">
     <img v-if="!loaded"
+         :id="'i'+uid"
          ref="img"
          :alt="dAlt"
-         :d-alt="dAlt"
          :data-src="dSrc"
          :src="defaultImgUrl"
-         class="lozad invisible relative">
+         class="lozad invisible relative img">
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, watchEffect } from 'vue';
+import { defineComponent, onMounted, ref, watchEffect, nextTick } from 'vue';
 import lozad from 'lozad'
+import { getRandomSerial } from "@/utils/random";
 
 export default defineComponent({
   name: 'LazyImg',
@@ -48,6 +49,7 @@ export default defineComponent({
     const img = ref<HTMLImageElement>({} as HTMLImageElement)
     const imgBg = ref<HTMLDivElement>({} as HTMLDivElement)
     const loaded = ref(false)
+    const uid = ref<string>(getRandomSerial())
 
     const observer = lozad(
         '.lozad', {
@@ -55,16 +57,21 @@ export default defineComponent({
             await new Promise(resolve => {
               element.onload = resolve
             })
-            imgBg.value.style.height = element.height.toString() + 'px'
-            loaded.value = true
             imgBg.value.classList.add('img-box__completed')
             await new Promise<void>(resolve => setTimeout(() => resolve(), props.displayDelay))
             emit('img-loaded')
+            await nextTick()
+            imgBg.value.style.height = element.height.toString() + 'px'
+            loaded.value = true
           },
         }
     )
 
-    onMounted(() => {
+    onMounted(async () => {
+      await nextTick()
+      img.value.classList.add(uid.value)
+      imgBg.value.classList.add(uid.value)
+      await nextTick()
       observer.observe()
       forceLoadService()
     })
@@ -81,7 +88,8 @@ export default defineComponent({
       defaultImgUrl,
       img,
       imgBg,
-      loaded
+      loaded,
+      uid
     }
   }
 });

@@ -29,21 +29,21 @@
         </p>
       </div>
       <div class="menu-card__img relative">
-        <LazyImg :d-src="imgUrl" class="max-h-full min-h-full h-full relative"/>
+        <img :src="imgUrl" alt="" class="relative"/>
       </div>
     </InnerLink>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, defineAsyncComponent } from 'vue'
+import { defineComponent } from 'vue'
 import '@/assets/scss/components/affairs-info/menu-card.scss'
 import InnerLink from "@/components/app/links/InnerLink.vue";
 
 export default defineComponent({
   name: "MenuCard",
   components: {
-    LazyImg: defineAsyncComponent(() => import('@/components/app/LazyImg.vue')),
+    // LazyImg: defineAsyncComponent(() => import('@/components/app/LazyImg.vue')),
     InnerLink
   },
   props: {
