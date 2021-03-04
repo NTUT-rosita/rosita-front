@@ -48,12 +48,12 @@ export default defineComponent({
         },
         {
           title: '學務面',
-          imgUrl: 'https://i.imgur.com/71nGLRO.webp',
+          imgUrl: 'https://i.imgur.com/XAyS905.webp',
           link: '/'
         },
         {
           title: '教務面',
-          imgUrl: 'https://i.imgur.com/71nGLRO.webp',
+          imgUrl: 'https://i.imgur.com/FPlTyg6.webp',
           link: '/'
         }
       ] as Array<MenuCardContent>

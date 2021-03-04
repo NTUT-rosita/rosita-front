@@ -29,7 +29,7 @@
         </p>
       </div>
       <div class="menu-card__img relative">
-        <LazyImg :d-src="imgUrl" class="max-h-full relative"/>
+        <LazyImg :d-src="imgUrl" class="max-h-full min-h-full h-full relative"/>
       </div>
     </InnerLink>
   </div>
