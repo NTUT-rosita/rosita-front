@@ -45,6 +45,10 @@
     </div>
     <div class="py-2 text-center text-gray-500">Copyright © 2021 NTUT Rosita</div>
   </div>
+
+  <div id="testing">
+    <Chart />
+  </div>
 </template>
 
 <script lang="ts">
