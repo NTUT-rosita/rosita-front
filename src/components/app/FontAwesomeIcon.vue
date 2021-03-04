@@ -1,6 +1,7 @@
 <template>
   <svg
       :class="$props.class"
+      class="inline-block"
       :viewBox="`0 0 ${width} ${height}`"
       xmlns="http://www.w3.org/2000/svg"
   >
@@ -23,7 +24,7 @@ export default defineComponent({
     type: {
       type: String as PropType<IconPrefix>,
       default: "fas",
-      required: false
+      required: true
     },
     class: String
   },

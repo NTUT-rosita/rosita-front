@@ -18,6 +18,15 @@ const routes: Array<RouteRecordRaw> = [
       /* webpackPrefetch: true */
       '@/pages/About.vue'
       )
+  },
+  {
+    path: '/affairs-info',
+    name: 'AffairsInfo',
+    component: () => import(
+      /* webpackChunkName: "AffairsInfo" */
+      /* webpackPrefetch: true */
+      '@/pages/AffairsInfo.vue'
+      )
   }
 ]
 

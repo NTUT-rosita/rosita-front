@@ -1,5 +1,5 @@
 <template>
-  <svg id="second-badge" class="pt-4 px-12 sm:px-14 md:px-20 relative max-w-full" viewBox="0 0 470.21 77.68">
+  <svg preserveAspectRatio="xMinYMid meet" class="second-badge relative max-w-full" viewBox="0 0 470.21 77.68">
     <use xlink:href="#rosita-second-badge.svg"/>
   </svg>
 </template>
@@ -14,12 +14,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-#second-badge {
+.second-badge {
   transition: .5s ease;
-}
 
-.show {
-  opacity: 1;
-  transition: .5s ease;
+  .show {
+    opacity: 1;
+    transition: .5s ease;
+  }
 }
 </style>

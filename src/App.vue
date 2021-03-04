@@ -15,12 +15,14 @@ import {
   getFooterLegalLinks,
   getFooterCommunityMediaIcons
 } from '@/components/app/footer/getFooterData'
-import '@/assets/scss/app.scss'
 
 export default defineComponent({
   name: 'App',
   components: {
-    Footer: defineAsyncComponent(() => import('@/components/app/footer/Footer.vue'))
+    Footer: defineAsyncComponent({
+      loader: () => import('@/components/app/Footer.vue'),
+      delay: 50
+    })
   },
   setup() {
     return {
