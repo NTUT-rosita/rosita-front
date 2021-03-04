@@ -1,21 +1,8 @@
 <template>
   <main id="home" class="page-container">
-    <Header/>
+    <Header />
     <div id="home-content" class="">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <Icon icon="smile"/>
-      <br>
+      <RectangleCard />
     </div>
   </main>
 </template>
@@ -24,11 +11,13 @@
 import { defineComponent, onMounted } from 'vue';
 import '@/assets/scss/pages/home.scss'
 import Header from "@/components/home/header/Header.vue";
+import RectangleCard from "@/components/home/content/RectangleCard.vue";
 
 export default defineComponent({
   name: 'Home',
   components: {
-    Header
+    Header,
+    RectangleCard
   },
   setup() {
     onMounted(() => {
