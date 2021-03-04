@@ -1,0 +1,5 @@
+@import "../shared";
+
+@include page('affairs-info') {
+  min-height: 100vh;
+}

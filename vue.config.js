@@ -7,7 +7,8 @@ const needBundleAnalysis = process.argv.includes('--analyze')
 const renderRoutes = (() => {
   const routes = [
     '/',
-    '/about'
+    '/about',
+    '/affairs-info'
   ].map((route) => route.replace(/\/$/, ''))
   routes.push(...routes.map((route) => `${route}/`))
   return routes
