@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-10te0 dark:bg-gray-800 dark:text-gray-200 text-lg">
+  <footer class="bg-gray-200 dark:bg-gray-900 dark:text-gray-200 text-lg">
     <div class="mx-10 pt-4 pb-2 border-b-2 border-gray-300 flex flex-wrap">
       <div
         v-for="(cardContent, index) in cardContents"
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="py-2 text-center text-gray-500 dark:text-gray-200">Copyright © 2021 NTUT Rosita</div>
-  </div>
+  </footer>
 </template>
 
 <script lang="ts">

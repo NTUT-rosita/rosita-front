@@ -16,7 +16,7 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  name: 'RetangleCard',
+  name: 'RectangleCard',
   setup() {
     interface CardItem {
       title: string,
