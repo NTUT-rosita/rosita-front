@@ -1,5 +1,5 @@
 @import "../shared";
 
 @include page('affairs-info') {
-  @include fix-100vh-in-mobile-WebKit;
+  min-height: 100vh;
 }
