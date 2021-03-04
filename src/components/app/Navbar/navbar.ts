@@ -12,7 +12,7 @@ export const navItems = [
   },
   {
     name: '校務資訊',
-    link: '/',
+    link: '/affairs-info',
     external: false
   },
   {
