@@ -4,24 +4,28 @@
       <component :is="Component"/>
     </keep-alive>
   </router-view>
-  <Footer :card-contents="footerCardContents" :legel-links="footerLegelLinks" :community-media-icons="footerCommunityMediaIcons" />
+  <Footer :card-contents="footerCardContents" :community-media-icons="footerCommunityMediaIcons"
+          :legel-links="footerLegalLinks"/>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import Footer from '@/components/app/footer/Footer.vue'
-import { getFooterCardContents, getFooterLegelLinks, getFooterCommunityMediaIcons  } from '@/components/app/footer/get-footer-data'
+import { defineComponent, defineAsyncComponent } from 'vue'
+import {
+  getFooterCardContents,
+  getFooterLegalLinks,
+  getFooterCommunityMediaIcons
+} from '@/components/app/footer/getFooterData'
 import '@/assets/scss/app.scss'
 
 export default defineComponent({
   name: 'App',
   components: {
-    Footer
+    Footer: defineAsyncComponent(() => import('@/components/app/footer/Footer.vue'))
   },
   setup() {
     return {
       footerCardContents: getFooterCardContents(),
-      footerLegelLinks: getFooterLegelLinks(),
+      footerLegalLinks: getFooterLegalLinks(),
       footerCommunityMediaIcons: getFooterCommunityMediaIcons()
     }
   }

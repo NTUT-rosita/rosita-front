@@ -4,7 +4,7 @@ export interface CardContent {
   url: string;
 }
 
-export interface LegelLink {
+export interface LegalLink {
   title: string;
   url: string;
 }

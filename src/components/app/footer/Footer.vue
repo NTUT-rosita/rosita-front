@@ -17,11 +17,11 @@
         class="my-4 px-4 text-center w-full md:w-1/2 lg:w-1/4 flex flex-col justify-center items-center overflow-hidden"
       >
         <h5
-          v-for="legelLink in legelLinks"
-          :key="legelLink"
+          v-for="legalLink in legalLinks"
+          :key="legalLink"
           class="my-2 text-gray-500 dark:text-gray-200"
         >
-          <a class="border-b-2 hover:border-black" :href="legelLink.url">{{ legelLink.title }}</a>
+          <a class="border-b-2 hover:border-black" :href="legalLink.url">{{ legalLink.title }}</a>
         </h5>
         <div class="my-2">
           <a
@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { CardContent, LegelLink, CommunityMediaIcon } from "./footer";
+import { CardContent, LegalLink, CommunityMediaIcon } from "./footer";
 
 export default defineComponent({
   name: "Footer",
@@ -54,8 +54,8 @@ export default defineComponent({
       type: Array as PropType<Array<CardContent>>,
       required: true
     },
-    legelLinks: {
-      type: Array as PropType<Array<LegelLink>>,
+    legalLinks: {
+      type: Array as PropType<Array<LegalLink>>,
       required: true
     },
     communityMediaIcons: {
