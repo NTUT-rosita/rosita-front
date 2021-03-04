@@ -1,15 +1,15 @@
 <template>
   <div class="bg-gray-10te0 dark:bg-gray-800 dark:text-gray-200 text-lg">
-    <div class="mx-10 pt-4 pb-2 border-b-2 border-gray-300 flex flex-wrap overflow-hidden">
+    <div class="mx-10 pt-4 pb-2 border-b-2 border-gray-300 flex flex-wrap">
       <div
         v-for="(cardContent, index) in cardContents"
         :key="`cardItem-${index}`"
-        class="my-4 px-4 text-center w-full md:w-1/2 lg:w-1/4"
+        class="h-auto my-4 px-4 text-center w-full md:w-1/2 lg:w-1/4 flex flex-col"
       >
         <div class="py-2 border-4 border-black dark:border-gray-100 rounded-3xl">
           {{ cardContent.title }}
         </div>
-        <div class="card-content-container h-auto mt-4 p-4 card-content border-4 border-black dark:border-gray-200 rounded-3xl" v-html="cardContent.content">
+        <div class="mt-4 p-4 flex flex-auto justify-center items-center border-4 border-black dark:border-gray-200 rounded-3xl" v-html="cardContent.content">
         </div>
       </div>
 
@@ -65,19 +65,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style lang="scss" scoped>
-.card-content-container {
-    display: inline-block;
-    height: fit-content;
-    position: relative;
-    width: 100%;
-}
-
-.card-content {
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
