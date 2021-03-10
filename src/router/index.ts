@@ -27,6 +27,15 @@ const routes: Array<RouteRecordRaw> = [
       /* webpackPrefetch: true */
       '@/pages/AffairsInfo.vue'
       )
+  },
+  {
+    path: '/chart-info',
+    name: 'ChartInfo',
+    component: () => import(
+        /* webpackChunkName: "ChartInfo" */
+        /* webpackPrefetch: true */
+        '@/pages/ChartInfo.vue'
+        )
   }
 ]
 

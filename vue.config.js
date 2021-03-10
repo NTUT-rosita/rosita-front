@@ -8,7 +8,8 @@ const renderRoutes = (() => {
   const routes = [
     '/',
     '/about',
-    '/affairs-info'
+    '/affairs-info',
+    '/chart-info'
   ].map((route) => route.replace(/\/$/, ''))
   routes.push(...routes.map((route) => `${route}/`))
   return routes
