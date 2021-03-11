@@ -12,6 +12,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import NavBar from "@/components/app/Navbar/NavBar.vue";
+import '@/assets/scss/pages/chart-info.scss'
 
 export default defineComponent({
   name: "ChartInfo",
@@ -20,7 +21,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style scoped>
-
-</style>
