@@ -1,5 +1,5 @@
 <template>
-  <div class="circle__container relative h-full overflow-y-hidden">
+  <div class="circle__container relative overflow-y-hidden">
     <div class="circle relative h-0">
       <div class="circle__outer">
         <div class="circle__inner"></div>
