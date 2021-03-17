@@ -1,7 +1,7 @@
 <template>
   <NavBar class="fixed"/>
   <main id="chart-info" class="page-container min-h-screen h-screen">
-    <div class="pt-14 lg:pt-20 h-full">
+    <div class="pt-14 lg:pt-20 h-full flex justify-center items-center">
       <Chart/>
     </div>
   </main>
