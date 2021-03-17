@@ -6,7 +6,7 @@
   </router-view>
   <Footer :card-contents="footerCardContents"
           :community-media-icons="footerCommunityMediaIcons"
-          :legel-links="footerLegalLinks"/>
+          :legal-links="footerLegalLinks"/>
 </template>
 
 <script lang="ts">
