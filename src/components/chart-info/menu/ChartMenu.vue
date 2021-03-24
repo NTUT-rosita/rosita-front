@@ -9,6 +9,8 @@
     shadow-lg
     border-4
     border-gray-800
+    hidden
+    lg:block
   ">
     menu
   </div>
