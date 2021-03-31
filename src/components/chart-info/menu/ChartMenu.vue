@@ -32,7 +32,8 @@
         <div class="py-1 divide-y divide-gray-100" role="menu" aria-orientation="vertical"
              aria-labelledby="options-menu">
 
-          <MenuItem v-for="(item, index) in menuItems" :key="index + item.name" :name="item.name" :description="item.description"/>
+          <ChartMenuItem v-for="(item, index) in menuItems" :key="index + item.name" :name="item.name"
+                    :description="item.description"/>
 
         </div>
       </div>
@@ -44,12 +45,12 @@
 import { defineComponent, reactive, toRefs } from "vue";
 import '@/assets/scss/components/chart-info/menu.scss'
 import { menuItems } from '@/components/chart-info/menu/menuItem'
-import MenuItem from '@/components/chart-info/menu/MenuItem.vue'
+import ChartMenuItem from '@/components/chart-info/menu/ChartMenuItem.vue'
 
 export default defineComponent({
   name: "ChartMenu",
-  components:{
-    MenuItem
+  components: {
+    ChartMenuItem
   },
   setup() {
     const data = reactive({
