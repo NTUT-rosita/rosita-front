@@ -38,10 +38,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import '@/assets/scss/components/affairs-info/menu-card.scss'
-import InnerLink from "@/components/app/links/InnerLink.vue";
+import InnerLink from '@/components/app/links/InnerLink.vue'
 
 export default defineComponent({
-  name: "MenuCard",
+  name: 'MenuCard',
   components: {
     // LazyImg: defineAsyncComponent(() => import('@/components/app/LazyImg.vue')),
     InnerLink
@@ -49,7 +49,7 @@ export default defineComponent({
   props: {
     imgUrl: {
       type: String,
-      required: true,
+      required: true
     },
     title: {
       type: String,

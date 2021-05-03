@@ -1,15 +1,14 @@
 <template>
-  <svg preserveAspectRatio="xMinYMid meet" class="second-badge relative max-w-full" viewBox="0 0 470.21 77.68">
-    <use xlink:href="#rosita-second-badge.svg"/>
-  </svg>
+  <SvgIcon name="rosita-second-badge" class="second-badge relative max-w-full" viewBox="0 0 470.21 77.68" aria-hidden="true"/>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import '@/assets/svg/rosita-second-badge.svg'
+import SvgIcon from '@/components/app/SvgIcon.vue'
 
 export default defineComponent({
-  name: "SecondBadge"
+  name: 'SecondBadge',
+  components: { SvgIcon }
 })
 </script>
 

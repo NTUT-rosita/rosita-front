@@ -26,7 +26,7 @@ export default defineComponent({
       delay: 50
     })
   },
-  setup() {
+  setup () {
     return {
       footerCardContents: getFooterCardContents(),
       footerLegalLinks: getFooterLegalLinks(),

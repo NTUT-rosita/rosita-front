@@ -23,7 +23,7 @@ export const navItems = [
   {
     name: '各校比較資訊',
     link: '/',
-    external: false,
+    external: false
   },
   {
     name: '線上分析工具',

@@ -11,14 +11,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import NavBar from "@/components/app/Navbar/NavBar.vue"
-import Chart from "@/components/chart-info/chart/Chart.vue";
-import ChartMenu from "@/components/chart-info/menu/ChartMenu.vue";
-import FilterBox from "@/components/chart-info/filter-box/FilterBox.vue";
+import NavBar from '@/components/app/Navbar/NavBar.vue'
+import Chart from '@/components/chart-info/chart/Chart.vue'
+import ChartMenu from '@/components/chart-info/menu/ChartMenu.vue'
+import FilterBox from '@/components/chart-info/filter-box/FilterBox.vue'
 import '@/assets/scss/pages/chart-info.scss'
 
 export default defineComponent({
-  name: "ChartInfo",
+  name: 'ChartInfo',
   components: {
     NavBar,
     Chart,

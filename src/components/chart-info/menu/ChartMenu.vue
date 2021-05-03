@@ -42,17 +42,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from "vue";
+import { defineComponent, reactive, toRefs } from 'vue'
 import '@/assets/scss/components/chart-info/menu.scss'
 import { menuItems } from '@/components/chart-info/menu/menuItem'
 import ChartMenuItem from '@/components/chart-info/menu/ChartMenuItem.vue'
 
 export default defineComponent({
-  name: "ChartMenu",
+  name: 'ChartMenu',
   components: {
     ChartMenuItem
   },
-  setup() {
+  setup () {
     const data = reactive({
       menuItems
     })

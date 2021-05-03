@@ -27,18 +27,18 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import NavBar from "@/components/app/Navbar/NavBar.vue";
+import NavBar from '@/components/app/Navbar/NavBar.vue'
 import '@/assets/scss/pages/affairs-info.scss'
-import MenuCard from "@/components/affairs-info/MenuCard.vue";
-import { MenuCardContent } from "@/components/affairs-info/menuCard";
+import MenuCard from '@/components/affairs-info/MenuCard.vue'
+import { MenuCardContent } from '@/components/affairs-info/menuCard'
 
 export default defineComponent({
-  name: "AffairsInfo",
+  name: 'AffairsInfo',
   components: {
     NavBar,
     MenuCard
   },
-  setup() {
+  setup () {
     const data = reactive({
       menuCardContents: [
         {
@@ -65,4 +65,3 @@ export default defineComponent({
   }
 })
 </script>
-

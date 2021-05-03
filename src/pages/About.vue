@@ -22,9 +22,9 @@ import { defineComponent, onMounted } from 'vue'
 
 export default defineComponent({
   name: 'About',
-  setup() {
+  setup () {
     onMounted(() => {
-      document.dispatchEvent(new Event('app-rendered'));
+      document.dispatchEvent(new Event('app-rendered'))
     })
   }
 })

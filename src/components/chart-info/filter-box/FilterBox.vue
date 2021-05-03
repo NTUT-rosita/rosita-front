@@ -17,11 +17,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 import '@/assets/scss/components/chart-info/filter-box.scss'
 
 export default defineComponent({
-  name: "FilterBox"
+  name: 'FilterBox'
 })
 </script>
 

@@ -1,4 +1,4 @@
-@import "../../shared";
+@import "src/assets/scss/shared/index";
 
 .header-container {
   .center {
@@ -10,6 +10,15 @@
       -webkit-transform: translatez(0);
       background-image: url("https://i.imgur.com/HYkm7B6.webp");
       filter: blur(5px);
+    }
+  }
+
+  .second-badge {
+    transition: .5s ease;
+
+    .show {
+      opacity: 1;
+      transition: .5s ease;
     }
   }
 }

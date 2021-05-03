@@ -32,17 +32,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 import '@/assets/scss/components/app/nav-bar.scss'
-import SecondBadge from "@/components/app/SecondBadge.vue";
-import ExternalLink from "@/components/app/links/ExternalLink.vue";
-import InnerLink from "@/components/app/links/InnerLink.vue";
-import NavDrawer from "@/components/app/Navbar/NavDrawer.vue";
-import NavBarItem from "@/components/app/Navbar/NavBarItem.vue";
-import { navItems } from "@/components/app/Navbar/navbar";
+import SecondBadge from '@/components/app/SecondBadge.vue'
+import ExternalLink from '@/components/app/links/ExternalLink.vue'
+import InnerLink from '@/components/app/links/InnerLink.vue'
+import NavDrawer from '@/components/app/Navbar/NavDrawer.vue'
+import NavBarItem from '@/components/app/Navbar/NavBarItem.vue'
+import { navItems } from '@/components/app/Navbar/navbar'
 
 export default defineComponent({
-  name: "NavBar",
+  name: 'NavBar',
   components: {
     SecondBadge,
     NavBarItem,
@@ -55,11 +55,11 @@ export default defineComponent({
       default: false
     }
   },
-  setup() {
+  setup () {
     return {
       navItems,
       InnerLink,
-      ExternalLink,
+      ExternalLink
     }
   }
 })

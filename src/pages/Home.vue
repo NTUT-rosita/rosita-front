@@ -8,10 +8,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
+import { defineComponent, onMounted } from 'vue'
 import '@/assets/scss/pages/home.scss'
-import Header from "@/components/home/header/Header.vue";
-import RectangleCard from "@/components/home/content/RectangleCard.vue";
+import Header from '@/components/home/header/Header.vue'
+import RectangleCard from '@/components/home/content/RectangleCard.vue'
 
 export default defineComponent({
   name: 'Home',
@@ -19,10 +19,10 @@ export default defineComponent({
     Header,
     RectangleCard
   },
-  setup() {
+  setup () {
     onMounted(() => {
-      document.dispatchEvent(new Event('app-rendered'));
+      document.dispatchEvent(new Event('app-rendered'))
     })
   }
-});
+})
 </script>

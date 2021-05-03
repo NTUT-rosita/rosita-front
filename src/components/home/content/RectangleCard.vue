@@ -17,7 +17,7 @@ import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'RectangleCard',
-  setup() {
+  setup () {
     interface CardItem {
       title: string,
       content: string,
@@ -25,10 +25,10 @@ export default defineComponent({
     }
 
     const cardItems = ref<Array<CardItem>>([
-      { title: "校務資訊，你所不知道的消息", content: "你可以在「校務資訊」取得你想要的訊息。", href: "" },
-      { title: "研究", content: "待推出！", href: "" },
-      { title: "各校比較資訊", content: "待推出！", href: "" },
-      { title: "線上分析工具", content: "待推出！", href: "" }
+      { title: '校務資訊，你所不知道的消息', content: '你可以在「校務資訊」取得你想要的訊息。', href: '' },
+      { title: '研究', content: '待推出！', href: '' },
+      { title: '各校比較資訊', content: '待推出！', href: '' },
+      { title: '線上分析工具', content: '待推出！', href: '' }
     ])
 
     return {

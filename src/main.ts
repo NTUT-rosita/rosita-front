@@ -1,14 +1,14 @@
-import { createApp } from 'vue'
+import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
-import router from './router'
-import Icon from "@/plugins/fontAwesome";
+import { routerOptions } from '@/router'
+import 'virtual:windi.css'
 
-const app = createApp(App)
+import Icon from '@/plugins/fontAwesome'
 
-app
-  .use(router)
-  .component("Icon", Icon)
-
-document.addEventListener('DOMContentLoaded', () => {
-  app.mount('#app')
-})
+export const createApp = ViteSSG(
+  App,
+  routerOptions,
+  ({ app, router, isClient }) => {
+    app.component('Icon', Icon)
+  }
+)

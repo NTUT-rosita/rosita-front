@@ -46,13 +46,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, computed, reactive, toRefs, nextTick } from "vue";
+import { defineComponent, onMounted, ref, computed, reactive, toRefs, nextTick } from 'vue'
 import '@/assets/scss/components/chart-info/chart.scss'
-import { createChart } from "@/charts";
+import { createChart } from '@/charts'
 
 export default defineComponent({
-  name: "Chart",
-  setup() {
+  name: 'Chart',
+  setup () {
     const circleArea = ref<HTMLDivElement>({} as HTMLDivElement)
 
     const data = reactive({

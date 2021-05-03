@@ -10,12 +10,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, PropType } from "vue";
-import { findIconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { IconPrefix, IconName } from "@fortawesome/fontawesome-common-types"
+import { defineComponent, computed, PropType } from 'vue'
+import { findIconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { IconPrefix, IconName } from '@fortawesome/fontawesome-common-types'
 
 export default defineComponent({
-  name: "FontAwesomeIcon",
+  name: 'FontAwesomeIcon',
   props: {
     icon: {
       type: String as PropType<IconName>,
@@ -23,22 +23,22 @@ export default defineComponent({
     },
     type: {
       type: String as PropType<IconPrefix>,
-      default: "fas",
+      default: 'fas',
       required: true
     },
     class: String
   },
-  setup(props) {
+  setup (props) {
     const definition = computed(() =>
-        findIconDefinition({
-          prefix: props.type,
-          iconName: props.icon
-        })
-    );
-    const width = computed(() => definition.value?.icon[0] ?? 0);
-    const height = computed(() => definition.value?.icon[1] ?? 0);
-    const svgPath = computed(() => definition.value?.icon[4] ?? '');
-    return { width, height, svgPath };
+      findIconDefinition({
+        prefix: props.type,
+        iconName: props.icon
+      })
+    )
+    const width = computed(() => definition.value?.icon[0] ?? 0)
+    const height = computed(() => definition.value?.icon[1] ?? 0)
+    const svgPath = computed(() => definition.value?.icon[4] ?? '')
+    return { width, height, svgPath }
   }
-});
+})
 </script>

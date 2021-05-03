@@ -8,11 +8,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import ExternalLink from "@/components/app/links/ExternalLink.vue";
-import InnerLink from "@/components/app/links/InnerLink.vue";
+import ExternalLink from '@/components/app/links/ExternalLink.vue'
+import InnerLink from '@/components/app/links/InnerLink.vue'
 
 export default defineComponent({
-  name: "NavDrawerItem",
+  name: 'NavDrawerItem',
   props: {
     name: {
       type: String,
@@ -30,7 +30,7 @@ export default defineComponent({
       required: true
     }
   },
-  setup() {
+  setup () {
     return {
       ExternalLink,
       InnerLink

@@ -5,15 +5,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "ExternalLink",
+  name: 'ExternalLink',
   props: {
     to: {
       required: true,
       type: String
     }
   }
-});
+})
 </script>

@@ -1,55 +1,51 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { RouteRecordRaw } from 'vue-router'
+import { RouterOptions } from 'vite-ssg'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: () =>
       import(
-        /* webpackChunkName: "Home" */
-        /* webpackPreload: true */
-        "@/pages/Home.vue"
-      ),
+        '@/pages/Home.vue'
+      )
   },
   {
-    path: "/about",
-    name: "About",
+    path: '/about',
+    name: 'About',
     component: () =>
       import(
-        /* webpackChunkName: "About" */
-        /* webpackPrefetch: true */
-        "@/pages/About.vue"
-      ),
+        '@/pages/About.vue'
+      )
   },
   {
-    path: "/affairs-info",
-    name: "AffairsInfo",
+    path: '/affairs-info',
+    name: 'AffairsInfo',
     component: () =>
       import(
-        /* webpackChunkName: "AffairsInfo" */
-        /* webpackPrefetch: true */
-        "@/pages/AffairsInfo.vue"
-      ),
+        '@/pages/AffairsInfo.vue'
+      )
   },
   {
-    path: "/chart-info",
-    name: "ChartInfo",
+    path: '/chart-info',
+    name: 'ChartInfo',
     component: () =>
       import(
-        /* webpackChunkName: "ChartInfo" */
-        /* webpackPrefetch: true */
-        "@/pages/ChartInfo.vue"
-      ),
+        '@/pages/ChartInfo.vue'
+      )
   },
   {
-    path: "/:pathNatch(.*)*",
-    redirect: "/"
-  },
-];
+    path: '/:pathNatch(.*)*',
+    name: 'NotFound',
+    redirect: '/'
+  }
+]
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes,
-});
+// const router = createRouter({
+//   history: createWebHistory(process.env.BASE_URL),
+//   routes
+// })
 
-export default router;
+export const routerOptions: RouterOptions = {
+  routes
+}

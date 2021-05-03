@@ -1,10 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/ban-types
 export const deBounce = (func: Function, delay = 100, ...args: Array<undefined>): () => unknown => {
-  let timer: number;
+  let timer: number
   return () => {
-    clearTimeout(timer);
+    clearTimeout(timer)
+    // @ts-ignore
     timer = setTimeout(() => {
-      func(args);
+      func(args)
     }, delay)
   }
 }

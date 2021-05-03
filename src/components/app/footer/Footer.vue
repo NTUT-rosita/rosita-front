@@ -44,11 +44,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { CardContent, LegalLink, CommunityMediaIcon } from "./footer";
+import { defineComponent, PropType } from 'vue'
+import { CardContent, LegalLink, CommunityMediaIcon } from './footer'
 
 export default defineComponent({
-  name: "Footer",
+  name: 'Footer',
   props: {
     cardContents: {
       type: Array as PropType<Array<CardContent>>,
@@ -63,5 +63,5 @@ export default defineComponent({
       required: true
     }
   }
-});
+})
 </script>

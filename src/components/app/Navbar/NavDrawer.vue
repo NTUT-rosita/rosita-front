@@ -56,15 +56,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, nextTick } from 'vue';
+import { defineComponent, ref, nextTick } from 'vue'
 import '@/assets/scss/components/app/nav-drawer.scss'
-import { navItems } from "@/components/app/Navbar/navbar";
+import { navItems } from '@/components/app/Navbar/navbar'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import SecondBadge from "@/components/app/SecondBadge.vue";
-import NavDrawerItem from "@/components/app/Navbar/NavDrawerItem.vue";
+import SecondBadge from '@/components/app/SecondBadge.vue'
+import NavDrawerItem from '@/components/app/Navbar/NavDrawerItem.vue'
 
 export default defineComponent({
-  name: "NavDrawer",
+  name: 'NavDrawer',
   components: {
     SecondBadge,
     NavDrawerItem
@@ -76,30 +76,30 @@ export default defineComponent({
       default: false
     }
   },
-  setup() {
+  setup () {
     const drawerContainer = ref<HTMLDivElement>({} as HTMLDivElement)
     const drawerMenu = ref<HTMLUListElement>({} as HTMLUListElement)
     const drawerToggle = ref<HTMLLinkElement>({} as HTMLLinkElement)
     const drawerBottomLayer = ref<HTMLDivElement>({} as HTMLDivElement)
 
-    let isMenuOpen = ref(false);
+    const isMenuOpen = ref(false)
 
     const openDrawer = async () => {
       isMenuOpen.value = true
       await nextTick()
       await new Promise<void>(resolve => setTimeout(() => resolve(), 10))
-      drawerToggle.value.setAttribute('aria-expanded', 'true');
-      drawerMenu.value.hidden = false;
-      drawerContainer.value.classList.add('drawer--open');
-      drawerBottomLayer.value.classList.add('bottom-layer--open');
+      drawerToggle.value.setAttribute('aria-expanded', 'true')
+      drawerMenu.value.hidden = false
+      drawerContainer.value.classList.add('drawer--open')
+      drawerBottomLayer.value.classList.add('bottom-layer--open')
       disableBodyScroll(drawerBottomLayer.value)
     }
 
     const closeDrawer = async () => {
-      drawerToggle.value.setAttribute('aria-expanded', 'false');
-      drawerMenu.value.hidden = true;
-      drawerContainer.value.classList.remove('drawer--open');
-      drawerBottomLayer.value.classList.remove('bottom-layer--open');
+      drawerToggle.value.setAttribute('aria-expanded', 'false')
+      drawerMenu.value.hidden = true
+      drawerContainer.value.classList.remove('drawer--open')
+      drawerBottomLayer.value.classList.remove('bottom-layer--open')
       enableBodyScroll(drawerBottomLayer.value)
       await new Promise<void>(resolve => setTimeout(() => resolve(), 1000))
       isMenuOpen.value = false
