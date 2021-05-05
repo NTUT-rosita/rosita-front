@@ -5,23 +5,27 @@ export interface MenuItemType {
 
 export const menuItems:Array<MenuItemType> = [
   {
-    name: 'chart1',
+    name: '各年級學生數',
     description: 'this is chart 1'
   },
   {
-    name: 'chart2',
+    name: '男女比',
     description: 'this is chart 2'
   },
   {
-    name: 'chart3',
+    name: '師生比',
     description: 'this is chart 3'
   },
   {
-    name: 'chart4',
+    name: '註冊率',
     description: 'this is chart 4'
   },
   {
-    name: 'chart5',
+    name: '外籍生數',
     description: 'this is chart 5'
+  },
+  {
+    name: '僑生、港澳生數',
+    description: 'this is chart 6'
   }
 ]
