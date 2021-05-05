@@ -48,7 +48,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref, computed, reactive, toRefs, nextTick } from 'vue'
 import '@/assets/scss/components/chart-info/chart.scss'
-import { createChart } from '@/charts'
+import charts from '@/charts'
 
 export default defineComponent({
   name: 'Chart',
@@ -63,7 +63,7 @@ export default defineComponent({
     onMounted(async () => {
       const myChartCanvas = document.getElementById('myChart') as HTMLCanvasElement
       await nextTick()
-      createChart(myChartCanvas)
+      charts.createDayStudentDetailsChart(myChartCanvas)
     })
 
     return {
