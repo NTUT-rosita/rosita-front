@@ -1,4 +1,4 @@
-import { Chart } from 'chart.js'
+import { Chart, registerables } from 'chart.js'
 
 export const createChart = (target: HTMLCanvasElement): Chart => {
   return new Chart(target, {
@@ -26,6 +26,15 @@ export const createChart = (target: HTMLCanvasElement): Chart => {
         ],
         borderWidth: 1
       }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
     }
   })
 }
+
+Chart.register(...registerables)
