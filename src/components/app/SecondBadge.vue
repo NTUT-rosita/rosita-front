@@ -1,5 +1,7 @@
 <template>
-  <SvgIcon name="rosita-second-badge" class="second-badge relative max-w-full" viewBox="0 0 470.21 77.68" aria-hidden="true"/>
+  <router-link to="/" replace>
+    <SvgIcon name="rosita-second-badge" class="second-badge relative max-w-full" viewBox="0 0 470.21 77.68" aria-hidden="true"/>
+  </router-link>
 </template>
 
 <script lang="ts">
